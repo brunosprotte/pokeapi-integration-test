@@ -14,6 +14,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class WebSecurityConfig {
 
     @Bean
+    @Profile("integration-test")
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests().anyRequest().permitAll().and()
                 .cors(AbstractHttpConfigurer::disable)
